@@ -1,15 +1,10 @@
 def int fib(int n)
 {
-	if (n <= 2){
-		return 1;
+	print("n:", n):
+	if (n < 2){
+		return n;
 	}
-	
-	return n;
+	return fib(n - 1) + fib(n - 2);
 }
 
-local int a;
-a = 1;
-while(a < 15){
-	print("answer: ", fib(a));
-	a = a + 1;
-}
+fib(4);
