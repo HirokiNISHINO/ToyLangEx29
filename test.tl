@@ -1,10 +1,12 @@
 def int fib(int n)
 {
-	print("n:", n):
-	if (n < 2){
-		return n;
-	}
-	return fib(n - 1) + fib(n - 2);
+	print("n:", n);
+	return 1;
 }
 
-fib(4);
+local int a;
+a = 0;
+while(a < 10){
+	fib(a);
+	a = a + 1;
+}

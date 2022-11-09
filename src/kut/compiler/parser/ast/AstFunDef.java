@@ -67,6 +67,7 @@ public class AstFunDef extends AstNode
 	@Override
 	public void cgen(CodeGenerator gen) throws IOException, CompileErrorException
 	{
+		gen.setCompilingFunction(true);
 		gen.resetLocalVariableTable();
 		this.preprocessLocalVariables(gen);
 		gen.assignLocalVariableIndices();
