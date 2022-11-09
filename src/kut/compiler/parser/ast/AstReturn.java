@@ -19,7 +19,7 @@ public class AstReturn extends AstNode
 	protected ExprType 	funcReturnType	;
 	protected ExprType 	exprType		;
 	protected boolean	castReturnValueFromIntegerToDouble;
-	
+		
 	/**
 	 * @param t
 	 */
@@ -72,6 +72,9 @@ public class AstReturn extends AstNode
 			gen.printCode("ret");
 		}
 		else {
+			if (this.expr == null) {
+				gen.printCode("mov rax, 0");
+			}
 			gen.printCode("jmp " + gen.getExitSysCallLabel());
 		}
 	}
@@ -96,14 +99,14 @@ public class AstReturn extends AstNode
 		
 		//for a void function.
 		if (this.expr == null) {
-			if (funcReturnType != ExprType.VOID) {
-				throw new CompileErrorException("this function must return a value.");
+			if (funcReturnType != ExprType.VOID && gen.isCompilingFunction()) {
+				throw new CompileErrorException("this function must return a value. : " + t);
 			}
 			return ExprType.VOID;
 		}
 		else if (funcReturnType == ExprType.VOID) {
 			if (this.expr != null) {
-				throw new CompileErrorException("a void function must not return a value.");	
+				throw new CompileErrorException("a void function must not return a value " + t);	
 			}
 		}
 		

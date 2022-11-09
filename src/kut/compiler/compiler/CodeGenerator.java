@@ -38,7 +38,7 @@ public class CodeGenerator
 	
 	protected boolean		compilingFunction;
 	protected ExprType		currentFunctionReturnType;
-	
+	protected String		currentFunctionName;
 	
 
 
@@ -58,6 +58,8 @@ public class CodeGenerator
 		tmpLabelIndex = 0;
 
 	}
+	
+
 	
 	/**
 	 * @return
