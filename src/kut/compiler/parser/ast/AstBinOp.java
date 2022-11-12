@@ -340,6 +340,12 @@ public class AstBinOp extends AstNode
 			gen.printCode("movq rax, xmm0");
 			break;
 			
+		case '%':
+			gen.printCode("call " + gen.getExternalFunctionName("fmod"));
+			gen.printCode("movq rax, xmm0");
+			break;
+			
+			
 		case TokenClass.EQ:
 		{
 			CondLabels labels = gen.generateCondLabels();
@@ -521,6 +527,16 @@ public class AstBinOp extends AstNode
 			gen.printCode("add rsp, 8");
 			gen.printCode("idiv rbx");
 			break;
+			
+		case '%':
+			gen.printCode("mov rbx, rax");
+			gen.printCode("mov rdx, 0");
+			gen.printCode("mov rax, [rsp]");
+			gen.printCode("add rsp, 8");
+			gen.printCode("idiv rbx");
+			gen.printCode("mov rax, rdx");
+			break;
+			
 			
 		case TokenClass.EQ:
 		{

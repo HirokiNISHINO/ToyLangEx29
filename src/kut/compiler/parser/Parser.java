@@ -599,7 +599,7 @@ public class Parser
 				break;
 			}
 			
-			if (t.getC() != '*' && t.getC() != '/') {
+			if (t.getC() != '*' && t.getC() != '/' && t.getC() != '%') {
 				break;
 			}
 			this.consumeCurrentToken();

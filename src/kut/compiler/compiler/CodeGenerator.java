@@ -398,6 +398,7 @@ public class CodeGenerator
 
 		this.printCode	("extern " + this.getExternalFunctionName("printf"), 0);
 		this.printCode	("extern " + this.getExternalFunctionName("strcmp"), 0);
+		this.printCode	("extern " + this.getExternalFunctionName("fmod"), 0);
 		this.printCode	();
 		
 		//--------------------------------------

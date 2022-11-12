@@ -130,6 +130,7 @@ public class Lexer
 		case '{':
 		case '}':
 		case ',':
+		case '%':
 			return new Token(i, "" + c, lineNo);
 		default:
 			break;
