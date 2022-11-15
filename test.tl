@@ -1,1 +1,7 @@
-print(5.2 % 1.4);
+global int a;
+a = 0;
+
+while(a < 10){
+  print("a:", a);
+  a = a + 1;
+}

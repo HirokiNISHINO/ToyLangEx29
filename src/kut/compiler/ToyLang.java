@@ -37,7 +37,7 @@ public class ToyLang {
 		
 		System.out.println("compiling...");
 		
-		CodeGenerator generator = new CodeGenerator(program, args[1],  isMac ? Platform.MAC : Platform.LINUX);
+		CodeGenerator generator = new CodeGenerator(program, args[1], isMac ? Platform.MAC : Platform.LINUX);
 		generator.generateCode();
 		System.out.println("done.");	
 	}

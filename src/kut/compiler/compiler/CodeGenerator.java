@@ -183,7 +183,7 @@ public class CodeGenerator
 	 */
 	public String getExitSysCallNum()
 	{
-		return (this.platform == Platform.MAC ? "0x2000001" : "0x01");
+		return (this.platform == Platform.MAC ? "0x2000001" : "60");
 	}
 	
 	/**
