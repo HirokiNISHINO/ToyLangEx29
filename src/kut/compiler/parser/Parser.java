@@ -167,7 +167,7 @@ public class Parser
 	{
 		Token t = this.getCurrentToken();
 		if (t.getC() != TokenClass.DEF) {
-			throw new SyntaxErrorException("expected 'def' but found: " + t.getL());
+			throw new SyntaxErrorException("expected 'def' but found: " + t);
 		}
 		this.consumeCurrentToken();
 		
@@ -176,20 +176,20 @@ public class Parser
 		if (tc != TokenClass.VOID 		&& tc != TokenClass.INT 	&&
 			tc != TokenClass.BOOLEAN	&& tc != TokenClass.DOUBLE	&&
 			tc != TokenClass.STRING	){
-			throw new SyntaxErrorException("expected a type name but found: " + t.getL());
+			throw new SyntaxErrorException("expected a type name but found: " + t);
 		}
 		this.consumeCurrentToken();
 		
 		Token t2 = this.getCurrentToken();
 		if (t2.getC() != TokenClass.Identifier) {
-			throw new SyntaxErrorException("expected a function name but found: " + t2.getL());
+			throw new SyntaxErrorException("expected a function name but found: " + t2);
 		}
 		this.consumeCurrentToken();
 		
 		
 		Token t3 = this.getCurrentToken();
 		if (t3.getC() != '(') {
-			throw new SyntaxErrorException("expected '(' but found: " + t3.getL());			
+			throw new SyntaxErrorException("expected '(' but found: " + t3);			
 		}
 		this.consumeCurrentToken();
 	
@@ -201,13 +201,13 @@ public class Parser
 			if (t3c != TokenClass.VOID 		&& t3c != TokenClass.INT 	&&
 				t3c != TokenClass.BOOLEAN	&& t3c != TokenClass.DOUBLE	&&
 				t3c != TokenClass.STRING	){	
-				throw new SyntaxErrorException("expected a type name but found: " + t3.getL());
+				throw new SyntaxErrorException("expected a type name but found: " + t3);
 			}
 			this.consumeCurrentToken();
 
 			Token t4 = this.getCurrentToken();
 			if (t4.getC() != TokenClass.Identifier) {
-				throw new SyntaxErrorException("expected a parameter name but found: " + t4.getL());
+				throw new SyntaxErrorException("expected a parameter name but found: " + t4);
 			}
 
 			AstIdentifier id = new AstIdentifier(t4);
@@ -222,14 +222,14 @@ public class Parser
 				break;
 			}
 			if (t3.getC() != ',') {
-				throw new SyntaxErrorException("expected ',' but found: " + t4.getL());				
+				throw new SyntaxErrorException("expected ',' but found: " + t4);				
 			}
 			this.consumeCurrentToken();
 			t3 = this.getCurrentToken();
 		}
 		
 		if (t3.getC() != ')'){
-			throw new SyntaxErrorException("expected ')' but found: " + t3.getL());			
+			throw new SyntaxErrorException("expected ')' but found: " + t3);			
 		}
 		this.consumeCurrentToken();
 		
@@ -247,7 +247,7 @@ public class Parser
 	{
 		Token t = this.getCurrentToken();
 		if (t.getC() != TokenClass.WHILE) {
-			throw new SyntaxErrorException("expected 'while' but found: " + t.getL());
+			throw new SyntaxErrorException("expected 'while' but found: " + t);
 		}
 		this.consumeCurrentToken();
 		
@@ -269,7 +269,7 @@ public class Parser
 		
 		Token t = this.getCurrentToken();
 		if (t.getC() != '{') {
-			throw new SyntaxErrorException("expected ';' but found: " + t.getL());
+			throw new SyntaxErrorException("expected ';' but found: " + t);
 		}
 		this.consumeCurrentToken();
 
@@ -284,7 +284,7 @@ public class Parser
 		
 		t = this.getCurrentToken();
 		if (t.getC() != '}') {
-			throw new SyntaxErrorException("expected ';' but found: " + t.getL());
+			throw new SyntaxErrorException("expected ';' but found: " + t);
 		}
 		this.consumeCurrentToken();
 		return stmts;
@@ -300,7 +300,7 @@ public class Parser
 		
 		Token t = this.getCurrentToken();
 		if (t.getC() != ';') {
-			throw new SyntaxErrorException("expected ';' but found: " + t.getL());
+			throw new SyntaxErrorException("expected ';' but found: " + t);
 		}
 		this.consumeCurrentToken();
 		
