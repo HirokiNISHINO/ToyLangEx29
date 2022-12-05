@@ -251,12 +251,24 @@ public class Parser
 		}
 		this.consumeCurrentToken();
 		
+		Token t2 = this.getCurrentToken();
+		if (t2.getC() != '(') {
+			throw new SyntaxErrorException("expected '(' but found: " + t);			
+		}
+		this.consumeCurrentToken();
+		
 		AstNode expr = expr();
+		
+		t2 = this.getCurrentToken();
+		if (t2.getC() != ')') {
+			throw new SyntaxErrorException("expected ')' but found: " + t);			
+		}
+		this.consumeCurrentToken();
+
 		
 		AstNode body = statement();
 		
 		return new AstWhile(expr, body, t);
-		
 	}
 	/**
 	 * @return
